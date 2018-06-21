@@ -2,7 +2,8 @@ package com.freesoft.kotlinpetclinic.domain
 
 import javax.persistence.*
 
-class Pet(
+@Entity
+data class Pet(
         @Id
         @Column(name = "PET_ID", updatable = false, insertable = false)
         @GeneratedValue(strategy = GenerationType.TABLE)

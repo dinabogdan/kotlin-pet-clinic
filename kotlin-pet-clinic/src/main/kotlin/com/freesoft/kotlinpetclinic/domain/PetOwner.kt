@@ -2,6 +2,7 @@ package com.freesoft.kotlinpetclinic.domain
 
 import javax.persistence.*
 
+@Entity
 data class PetOwner(
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE)

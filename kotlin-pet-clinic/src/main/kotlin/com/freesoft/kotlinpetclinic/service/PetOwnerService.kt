@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 import java.util.*
 
 @Component
-sealed class PetOwnerService(var petOwnerRepository: PetOwnerRepository) {
+class PetOwnerService(var petOwnerRepository: PetOwnerRepository) {
 
     fun createPetOwner(petOwner: PetOwner) = petOwnerRepository.save(petOwner)
 
