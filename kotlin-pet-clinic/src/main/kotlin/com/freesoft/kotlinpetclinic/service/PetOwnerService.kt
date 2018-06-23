@@ -24,4 +24,8 @@ class PetOwnerService(private val petOwnerRepository: PetOwnerRepository) {
             return retrievedPetOwner
         }
         return null
-    }}
+    }
+
+    fun findPetOwnerByFirstNameAndLastName(petOwnerFirstName: String, petOwnerLastName: String): PetOwner =
+            petOwnerRepository.findByFirstNameAndLastName(petOwnerFirstName, petOwnerLastName)
+}

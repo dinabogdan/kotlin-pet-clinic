@@ -20,4 +20,9 @@ class KotlinPetClinicApplicationTests {
         Assert.assertNotNull(petOwnerService)
     }
 
+    @Test
+    fun testPetOwnerService() {
+        val petOwner = petOwnerService.findPetOwnerByFirstNameAndLastName("Cristiano", "Ronaldo")
+        println(petOwner)
+    }
 }
