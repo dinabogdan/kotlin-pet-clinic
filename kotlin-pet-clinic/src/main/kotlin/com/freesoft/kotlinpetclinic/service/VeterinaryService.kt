@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 import java.util.*
 
 @Component
-class VeterinaryService(var veterinaryRepository: VeterinaryRepository) {
+class VeterinaryService(private val veterinaryRepository: VeterinaryRepository) {
 
     fun createVeterinary(veterinary: Veterinary): Veterinary = veterinaryRepository.save(veterinary)
 

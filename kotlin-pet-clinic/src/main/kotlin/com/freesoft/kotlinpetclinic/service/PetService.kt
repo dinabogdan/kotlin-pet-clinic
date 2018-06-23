@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 import java.util.*
 
 @Component
-class PetService(var petRepository: PetRepository) {
+class PetService(private val petRepository: PetRepository) {
 
     fun findById(id: Long): Optional<Pet> = petRepository.findById(id)
 
