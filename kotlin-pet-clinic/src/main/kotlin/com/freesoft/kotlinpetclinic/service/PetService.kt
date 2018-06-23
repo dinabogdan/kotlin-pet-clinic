@@ -8,7 +8,7 @@ import java.util.*
 @Component
 class PetService(var petRepository: PetRepository) {
 
-    fun createPet(pet: Pet) = petRepository.save(pet)
+    fun findById(id: Long): Optional<Pet> = petRepository.findById(id)
 
-    fun findPetById(id: Long): Optional<Pet> = petRepository.findById(id)
+    fun createPet(pet: Pet): Pet = petRepository.save(pet)
 }

@@ -8,8 +8,20 @@ import java.util.*
 @Component
 class PetOwnerService(var petOwnerRepository: PetOwnerRepository) {
 
-    fun createPetOwner(petOwner: PetOwner) = petOwnerRepository.save(petOwner)
+    fun createPetOwner(petOwner: PetOwner): PetOwner = petOwnerRepository.save(petOwner)
 
+    fun findPetOwnerById(id: Long): Optional<PetOwner>? = petOwnerRepository.findById(id)
 
-    fun findPetOwnerById(id: Long): Optional<PetOwner> = petOwnerRepository.findById(id)
-}
+    fun findAllPetOwners(): Iterable<PetOwner>? = petOwnerRepository.findAll()
+
+    fun updatePetOwner(petOwnerId: Long, petOwner: PetOwner): PetOwner? {
+        val optionalRetrievedPetOwner = petOwnerRepository.findById(petOwnerId)
+        if (optionalRetrievedPetOwner.isPresent) {
+            var retrievedPetOwner = optionalRetrievedPetOwner.get()
+            retrievedPetOwner.firstName = petOwner.firstName
+            retrievedPetOwner.lastName = petOwner.lastName
+            petOwnerRepository.save(retrievedPetOwner)
+            return retrievedPetOwner
+        }
+        return null
+    }}
